@@ -1,0 +1,1 @@
+Get-Certificate -Template "Machine"

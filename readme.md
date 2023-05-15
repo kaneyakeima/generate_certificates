@@ -12,7 +12,7 @@ certreq -new -f CSR_Base.inf CSR.req
 Get-Module -ListAvailable -Name ADCSAdministration
 ```
 
-## Reference Links
+## Jumble reference
 - https://www.vwnet.jp/windows/WS16/2017092701/Certreq.htm
 - https://learn.microsoft.com/ja-jp/azure/vpn-gateway/vpn-gateway-certificates-point-to-site
 - https://www.nextdoorwith.info/wp/se/how-to-create-self-signed-rootca-server-client-certificate/

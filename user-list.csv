@@ -1,3 +1,3 @@
-SAN,DNS
-a,www.contoso.com
-b,bbbb
+CN,SAN,Email
+hoge,hogehoge,Email
+fuga,fugafuga,Email

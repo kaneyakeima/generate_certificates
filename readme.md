@@ -19,3 +19,8 @@ Get-Module -ListAvailable -Name ADCSAdministration
 
 ## Microsoft Official Powershell Reference
 - https://learn.microsoft.com/en-us/powershell/module/pki/get-certificate?view=windowsserver2022-ps
+
+### How to get a self-signed certificate
+```Powershell
+New-SelfSignedCertificate
+```

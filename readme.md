@@ -3,7 +3,7 @@
 - Use ADCS certificate templates.
 
 ## CSR Issuance in Windows
-```
+```bat
 certreq -new -f CSR_Base.inf CSR.req
 ```
 

@@ -30,4 +30,10 @@ New-SelfSignedCertificate -DnsName "ADCS-Client" -CertStoreLocation $certStore -
 ### Check Powershell version
 ```Powershell
 $PSVersionTable.PSVersion
+
+### How to retrieve the certificate from the certificate store
+```Powershell
+$certStore = "cert:\LocalMachine\My"
+$exportDir = "C:\Users\Administrator\Desktop\work"
+Get-ChildItem -Path $certStore | ForEach-Object { Export-Certificate -Cert $_ -FilePath "$exportDir$($_.Thumbprint).cer" }
 ```

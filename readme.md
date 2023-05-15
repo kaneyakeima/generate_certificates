@@ -37,3 +37,6 @@ $certStore = "cert:\LocalMachine\My"
 $exportDir = "C:\Users\Administrator\Desktop\work"
 Get-ChildItem -Path $certStore | ForEach-Object { Export-Certificate -Cert $_ -FilePath "$exportDir$($_.Thumbprint).cer" }
 ```
+
+### Thanks
+감사드립니다 / カムサトゥリムニダ / 感謝致します

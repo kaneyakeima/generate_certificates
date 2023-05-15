@@ -40,3 +40,5 @@ Get-ChildItem -Path $certStore | ForEach-Object { Export-Certificate -Cert $_ -F
 
 ### Thanks
 감사드립니다 / カムサトゥリムニダ / 感謝致します
+
+https://isaac-gaikokugo-school.jp/korean/article/arigato

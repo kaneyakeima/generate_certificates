@@ -2,7 +2,7 @@
 - Script to issue SSL certificates in a powershell.
 - Using ADCS certificate templates.
 
-## CSR Issuance in Windows Command-Prompt
+## old-fashioned way
 ```bat
 certreq -new -f CSR_Base.inf CSR.req
 ```

@@ -38,10 +38,10 @@ New-SelfSignedCertificate -CertStoreLocation $CertDir `
 $userList = Import-Csv -Path ".\user-list.csv"
 foreach ($user in $userList) {
   $Cn = $user.CN
-  $DnsName = $user.SAN
+  $DnsName = $user.DNS
   $CertDir = "cert:\LocalMachine\My"
   $Tmplt = "[Template Name]"
-  Get-Certificate -Template $Template `
+  Get-Certificate -Template $Tmplt `
    -Subject CN=$Cn `
    -CertStoreLocation $CertDir `
    -DnsName $DnsName
@@ -49,9 +49,9 @@ foreach ($user in $userList) {
 ```
 user-list.csv
 ```csv
-CN,SAN,Email
-1,1.ppp.local,1@ppp.local
-2,2.ppp.local,2@ppp.local
+CN,DNS,Email
+CommonName1,DnsName1,1@example.local
+CommonName2,DnsName2,2@example.local
 ```
 
 ### Check Powershell version

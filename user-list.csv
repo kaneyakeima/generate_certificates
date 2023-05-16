@@ -1,3 +1,3 @@
-CN,SAN,Email
-CommonName1,SubjectAlternativeName1,1@ppp.local
-CommonName2,SubjectAlternativeName2,2@ppp.local
+CN,DNS,Email
+CommonName1,DnsName1,1@example.local
+CommonName2,DnsName2,2@example.local

@@ -1,6 +1,7 @@
 # Abstract
+## makeClientCrt.ps1
 - Script to issue SSL certificates in a powershell.
-- Use ADCS certificate templates.
+- Using ADCS certificate templates.
 
 ## CSR Issuance in Windows
 ```bat

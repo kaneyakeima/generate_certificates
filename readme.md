@@ -1,5 +1,4 @@
-# Abstract
-## makeClientCrt.ps1
+# makeClientCrt.ps1
 - Script to issue SSL certificates in a powershell.
 - Using ADCS certificate templates.
 

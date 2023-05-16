@@ -59,6 +59,6 @@ Get-ChildItem -Path $certStore | ForEach-Object { Export-Certificate -Cert $_ -F
 ### Thanks
 - 감사드립니다 / カムサトゥリムニダ / 感謝致します
 - 수고했어요 / スゴヘッソヨ / お疲れ様
-- 
+
 https://isaac-gaikokugo-school.jp/korean/article/arigato
 https://coneru-web.com/korean-otsukaresama/

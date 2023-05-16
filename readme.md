@@ -14,9 +14,23 @@ Get-Module -ListAvailable -Name ADCSAdministration
 
 ### Get a self-signed certificate
 ```Powershell
-$certStore = "cert:\LocalMachine\My" # Certificate storage location
-$certPassword = ConvertTo-SecureString -String "P@ssw0rd" -Force -AsPlainText # Certificate Password
-New-SelfSignedCertificate -CertStoreLocation $certStore -FriendlyName "ADCS Client Certificate" -Type CodeSigningCert -Subject "CN=ADCS-Client" -KeyUsage DigitalSignature, KeyEncipherment -NotAfter (Get-Date).AddYears(5) -KeySpec Signature -TextExtension @("2.5.29.17={text}DNS=ADCS-Client", "2.5.29.37={text}1.3.6.1.5.5.7.3.2", "2.5.29.19={text}") -KeyExportPolicy Exportable -KeyAlgorithm RSA -KeyLength 2048 -KeyUsageProperty All -HashAlgorithm SHA256 -KeyProtection $certPassword
+$certStore = 'cert:\LocalMachine\My' # Certificate storage location
+$certPassword = ConvertTo-SecureString -String '[Certificate Password Strings]' -Force -AsPlainText # Certificate Password
+$FrdlNm = '[Name of Certificate Friendly Name]'
+$nc = '[Certificate Common Name]'
+New-SelfSignedCertificate -CertStoreLocation $certStore `
+ -FriendlyName $FrdlNm `
+ -Type CodeSigningCert `
+ -Subject "CN=$cn" `
+ -KeyUsage DigitalSignature, KeyEncipherment `
+ -NotAfter (Get-Date).AddYears(5) `
+ -KeySpec Signature `
+ -TextExtension @("2.5.29.17={text}DNS=ADCS-Client", "2.5.29.37={text}1.3.6.1.5.5.7.3.2", "2.5.29.19={text}") `
+ -KeyExportPolicy Exportable `
+ -KeyAlgorithm RSA -KeyLength 2048 `
+ -KeyUsageProperty All `
+ -HashAlgorithm SHA256 `
+ -KeyProtection $certPassword
 ```
 
 ### Get a local ca signed certificate by use of cert-template and user-list.csv

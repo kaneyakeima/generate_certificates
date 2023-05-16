@@ -64,7 +64,7 @@ CommonName2,DnsName2,2@example.local
 ```Powershell
 $certDir = "cert:\LocalMachine\My"
 $exportDir = "[path/of/exported]"
-Get-ChildItem -Path $certStore | ForEach-Object { Export-CertDir -Cert $_ -FilePath "$exportDir$($_.Thumbprint).cer" }
+Get-ChildItem -Path $certDir | ForEach-Object { Export-Certificate -Cert $_ -FilePath "$exportDir$($_.Thumbprint).cer" }
 ```
 
 ## 감사드립니다

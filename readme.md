@@ -14,23 +14,23 @@ Get-Module -ListAvailable -Name ADCSAdministration
 
 ### Get a self-signed certificate
 ```Powershell
-$certStore = 'cert:\LocalMachine\My' # Certificate storage location
-$certPassword = ConvertTo-SecureString -String '[Certificate Password Strings]' -Force -AsPlainText # Certificate Password
-$FrdlNm = '[Name of Certificate Friendly Name]'
-$nc = '[Certificate Common Name]'
+$certStore = 'cert:\LocalMachine\My'
+$FrdlNm = '[Cert Friendly Name]'
+$Cn = '[Cert Common Name]'
+$DnsName = '[Cert Dns Name]'
 New-SelfSignedCertificate -CertStoreLocation $certStore `
  -FriendlyName $FrdlNm `
  -Type CodeSigningCert `
- -Subject "CN=$cn" `
+ -Subject "CN=$Cn" `
  -KeyUsage DigitalSignature, KeyEncipherment `
  -NotAfter (Get-Date).AddYears(5) `
  -KeySpec Signature `
- -TextExtension @("2.5.29.17={text}DNS=ADCS-Client", "2.5.29.37={text}1.3.6.1.5.5.7.3.2", "2.5.29.19={text}") `
+ -TextExtension @("2.5.29.17={text}DNS=$DnsName", "2.5.29.37={text}1.3.6.1.5.5.7.3.2", "2.5.29.19={text}") `
  -KeyExportPolicy Exportable `
  -KeyAlgorithm RSA -KeyLength 2048 `
  -KeyUsageProperty All `
  -HashAlgorithm SHA256 `
- -KeyProtection $certPassword
+ -KeyProtection 'None'
 ```
 
 ### Get a local ca signed certificate by use of cert-template and user-list.csv

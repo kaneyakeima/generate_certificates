@@ -12,7 +12,7 @@ certreq -new -f CSR_Base.inf CSR.req
 Get-Module -ListAvailable -Name ADCSAdministration
 ```
 
-### Get a self-signed certificate
+## Get a self-signed certificate
 ```Powershell
 $CertDir = 'cert:\LocalMachine\My'
 $FrdlNm = '[Cert Friendly Name]'
@@ -33,7 +33,7 @@ New-SelfSignedCertificate -CertStoreLocation $CertDir `
  -KeyProtection 'None'
 ```
 
-### Get a local ca signed certificate by use of cert-template and user-list.csv
+## Get a local ca signed certificate by use of cert-template and user-list.csv
 ```Powershell
 $userList = Import-Csv -Path ".\user-list.csv"
 foreach ($user in $userList) {
@@ -54,11 +54,11 @@ CommonName1,DnsName1,1@example.local
 CommonName2,DnsName2,2@example.local
 ```
 
-### Check Powershell version
+## Check Powershell version
 ```Powershell
 $PSVersionTable.PSVersion
 ```
-### Export certificates from the certificate store
+## Export certificates from the certificate store
 ```Powershell
 $certStore = "cert:\LocalMachine\My"
 $exportDir = "C:\Users\Administrator\Desktop\work"

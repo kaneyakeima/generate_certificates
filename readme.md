@@ -12,14 +12,6 @@ certreq -new -f CSR_Base.inf CSR.req
 Get-Module -ListAvailable -Name ADCSAdministration
 ```
 
-## Jumble reference
-- https://www.vwnet.jp/windows/WS16/2017092701/Certreq.htm
-- https://learn.microsoft.com/ja-jp/azure/vpn-gateway/vpn-gateway-certificates-point-to-site
-- https://www.nextdoorwith.info/wp/se/how-to-create-self-signed-rootca-server-client-certificate/
-
-## Microsoft Official Powershell Reference
-- https://learn.microsoft.com/en-us/powershell/module/pki/get-certificate?view=windowsserver2022-ps
-
 ### Get a self-signed certificate
 ```Powershell
 $certStore = "cert:\LocalMachine\My" # Certificate storage location
@@ -59,6 +51,3 @@ Get-ChildItem -Path $certStore | ForEach-Object { Export-Certificate -Cert $_ -F
 ### Thanks
 - 감사드립니다 / カムサトゥリムニダ / 感謝致します
 - 수고했어요 / スゴヘッソヨ / お疲れ様
-
-https://isaac-gaikokugo-school.jp/korean/article/arigato
-https://coneru-web.com/korean-otsukaresama/

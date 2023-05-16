@@ -63,7 +63,7 @@ CommonName2,DnsName2,2@example.local
 ## Export certificates from the certificate store
 ```Powershell
 $certStore = "cert:\LocalMachine\My"
-$exportDir = "C:\Users\Administrator\Desktop\work"
+$exportDir = "[path/of/exported]"
 Get-ChildItem -Path $certStore | ForEach-Object { Export-Certificate -Cert $_ -FilePath "$exportDir$($_.Thumbprint).cer" }
 ```
 

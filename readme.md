@@ -38,6 +38,7 @@ foreach ($user in $userList) {
   Get-Certificate -Template $Template -Subject CN=$cn -CertStoreLocation $CertDir -DnsName $san
 }
 ```
+user-list.csv
 ```csv
 CN,SAN,Email
 1,1.ppp.local,1@ppp.local

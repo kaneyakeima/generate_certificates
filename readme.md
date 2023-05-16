@@ -14,11 +14,11 @@ Get-Module -ListAvailable -Name ADCSAdministration
 
 ### Get a self-signed certificate
 ```Powershell
-$certStore = 'cert:\LocalMachine\My'
+$CertDir = 'cert:\LocalMachine\My'
 $FrdlNm = '[Cert Friendly Name]'
 $Cn = '[Cert Common Name]'
 $DnsName = '[Cert Dns Name]'
-New-SelfSignedCertificate -CertStoreLocation $certStore `
+New-SelfSignedCertificate -CertStoreLocation $CertDir `
  -FriendlyName $FrdlNm `
  -Type CodeSigningCert `
  -Subject "CN=$Cn" `
@@ -37,11 +37,14 @@ New-SelfSignedCertificate -CertStoreLocation $certStore `
 ```Powershell
 $userList = Import-Csv -Path ".\user-list.csv"
 foreach ($user in $userList) {
-  $cn = $user.CN
-  $san = $user.SAN
+  $Cn = $user.CN
+  $DnsName = $user.SAN
   $CertDir = "cert:\LocalMachine\My"
   $Tmplt = "[Template Name]"
-  Get-Certificate -Template $Template -Subject CN=$cn -CertStoreLocation $CertDir -DnsName $san
+  Get-Certificate -Template $Template `
+   -Subject CN=$Cn `
+   -CertStoreLocation $CertDir `
+   -DnsName $DnsName
 }
 ```
 user-list.csv

@@ -7,6 +7,12 @@
 certreq -new -f CSR_Base.inf CSR.req
 ```
 
+## Check Powershell version
+```Powershell
+$PSVersionTable.PSVersion
+```
+
+
 ## Check if the ADCSAdministration module is available
 ```Powershell
 Get-Module -ListAvailable -Name ADCSAdministration
@@ -54,10 +60,6 @@ CommonName1,DnsName1,1@example.local
 CommonName2,DnsName2,2@example.local
 ```
 
-## Check Powershell version
-```Powershell
-$PSVersionTable.PSVersion
-```
 ## Export certificates from the certificate store
 ```Powershell
 $certStore = "cert:\LocalMachine\My"

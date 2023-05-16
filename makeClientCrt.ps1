@@ -3,6 +3,6 @@ foreach ($user in $userList) {
   $cn = $user.CN
   $san = $user.SAN
   $CertDir = "cert:\LocalMachine\My"
-  $Template = "computer2"
+  $Template = "[Template Name]"
   Get-Certificate -Template $Template -Subject CN=$cn -CertStoreLocation $CertDir -DnsName $san
 }

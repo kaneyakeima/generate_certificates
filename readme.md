@@ -67,4 +67,14 @@ $exportDir = "[path/of/exported]"
 Get-ChildItem -Path $certDir | ForEach-Object { Export-Certificate -Cert $_ -FilePath "$exportDir$($_.Thumbprint).cer" }
 ```
 
+## Check the contents of a certificate on Linux
+  openssl x509 -text -noout -in /etc/pki/tls/certs/test.local.pem
+  
+## Check the contents of a CSR on Linux
+  openssl req -noout -modulus -in /etc/pki/tls/certs/test.local.csr
+
+## Check the contents of a private key on Linux
+  openssl rsa -noout -modulus -in /etc/pki/tls/private/privkey-nopass.pem
+  openssl rsa -pubout < odapo.key
+
 ## 감사드립니다

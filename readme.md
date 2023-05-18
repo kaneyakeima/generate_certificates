@@ -68,13 +68,13 @@ Get-ChildItem -Path $certDir | ForEach-Object { Export-Certificate -Cert $_ -Fil
 ```
 
 ## Check the contents of a certificate on Linux
-  openssl x509 -text -noout -in /etc/pki/tls/certs/test.local.pem
+  openssl x509 -text -noout -in /etc/pki/tls/certs/[certificate-file-name].pem
   
 ## Check the contents of a CSR on Linux
-  openssl req -noout -modulus -in /etc/pki/tls/certs/test.local.csr
+  openssl req -noout -modulus -in /etc/pki/tls/certs/[csr-file-name].csr
 
 ## Check the contents of a private key on Linux
-  openssl rsa -noout -modulus -in /etc/pki/tls/private/privkey-nopass.pem
-  openssl rsa -pubout < odapo.key
+  openssl rsa -noout -modulus -in /etc/pki/tls/private/[privkey-nopass].pem
+  openssl rsa -pubout < [privkey].key
 
 ## 감사드립니다

@@ -5,7 +5,10 @@ $lines = (Get-Content -Path "$ulfn").Length - 1
 Write-Host "### Total entries in $ulfn : $lines"
 $ul = Import-Csv -Path "$ulfn"
 $dt = Get-Date -Format "yyyyMMdd_HHmmss"
+$time = Get-Date -Format "HH'mm'ss"
 $log = "$dt" + ".log"
+Write-Output "### Start Time : $time" >> $log
+Write-Output "### Total entries in $ulfn : $lines" >> $log
 New-Item "cer" -ItemType Directory -Force
 New-Item "inf" -ItemType Directory -Force
 New-Item "csr" -ItemType Directory -Force
@@ -45,3 +48,5 @@ function main {
 }
 $sec = (Measure-Command{ main >> $log}).TotalSeconds
 Write-Output "###### Total processing time","$sec sec." >> $log
+$time = Get-Date -Format "HH'mm'ss"
+Write-Output "### End Time : $time" >> $log

@@ -1,6 +1,9 @@
 $pw = "password"
 $ca = ".\ppp-HOGE-CA"
-$ul = Import-Csv -Path "user-list.csv"
+$ulfn = "user-list.csv"
+$lines = (Get-Content -Path "$ulfn").Length - 1
+Write-Host "### Total entries in $ulfn : $lines"
+$ul = Import-Csv -Path "$ulfn"
 $dt = Get-Date -Format "yyyyMMdd_HHmmss"
 $log = "$dt" + ".log"
 New-Item "cer" -ItemType Directory -Force

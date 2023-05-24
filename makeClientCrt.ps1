@@ -1,6 +1,6 @@
-$pw = "password"
-$ca = ".\ppp-HOGE-CA"
-$ulfn = "user-list.csv"
+$pw = "[private-key passphrase]"
+$ca = ".\[FQDN of local CA]"
+$ulfn = "[user list for input(csv)]"
 $lines = (Get-Content -Path "$ulfn").Length - 1
 $ul = Import-Csv -Path "$ulfn"
 $dt = Get-Date -Format "yyyyMMdd_HHmmss"

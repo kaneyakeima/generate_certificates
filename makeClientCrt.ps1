@@ -19,9 +19,9 @@ function main {
     $email = $user.email
     $upn = $user.upn
     $un = $user.un1 + " " + $user.un2
-    $inf = $user.cn + ".inf"
-    $csr = $user.cn + ".csr"
-    $cer = $user.cn + ".cer"
+    $inf = $cn + ".inf"
+    $csr = $cn + ".csr"
+    $cer = $cn + ".cer"
     Write-Output "### INF-FILE"
     Write-Output @"
 [NewRequest]

@@ -18,23 +18,22 @@ function main {
     Write-Host "Processing $cn now $(Get-Date -Format "HH:mm:ss") ..."
     $email = $user.email
     $upn = $user.upn
-    $infval = @"
-  [NewRequest]
-  Subject = "CN=$cn"
-  Exportable = TRUE
-  ExportableEncrypted = TRUE
-  [RequestAttributes]
-  CertificateTemplate = WorkspaceONE
-  [Extensions]
-  2.5.29.17 = "{text}"
-  _continue_ = "email=$email&"
-  _continue_ = "UPN=$upn"
-"@
     $inf = $user.cn + ".inf"
     $csr = $user.cn + ".csr"
     $cer = $user.cn + ".cer"
     Write-Output "### INF-FILE"
-    New-Item -Force .\inf\$inf -type File -value $infval
+    Write-Output @"
+[NewRequest]
+Subject = "CN=$cn"
+Exportable = TRUE
+ExportableEncrypted = TRUE
+[RequestAttributes]
+CertificateTemplate = WorkspaceONE
+[Extensions]
+2.5.29.17 = "{text}"
+_continue_ = "email=$email&"
+_continue_ = "UPN=$upn"
+"@ | Out-file .\inf\$inf -Encoding unicode
     Write-Output "### CSR"
     certreq -new -f .\inf\$inf .\csr\$csr
     Write-Output "### CA-SIGN"

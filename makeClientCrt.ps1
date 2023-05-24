@@ -9,6 +9,7 @@ $log = "$dt" + ".log"
 New-Item "cer" -ItemType Directory -Force > $null
 New-Item "inf" -ItemType Directory -Force > $null
 New-Item "csr" -ItemType Directory -Force > $null
+New-Item "pfx" -ItemType Directory -Force > $null
 Write-Host "Starting time is $startTime ..."
 function main {
   foreach ($user in $ul){
@@ -41,7 +42,7 @@ function main {
     Write-Output "### INSTALL"
     certreq -accept .\cer\$cn.cer
     Write-Output "### EXPORT"
-    certutil -f -exportpfx -p $pw My $cn "$cn.pfx" ExtendedProperties,ExportParameters
+    certutil -f -exportpfx -p $pw My $cn ".\pfx\$cn.pfx" ExtendedProperties,ExportParameters
   }
 }
 $sec = (Measure-Command{ main >> $log}).TotalSeconds

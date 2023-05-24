@@ -5,17 +5,18 @@ $lines = (Get-Content -Path "$ulfn").Length - 1
 $ul = Import-Csv -Path "$ulfn"
 $dt = Get-Date -Format "yyyyMMdd_HHmmss"
 $startTime = Get-Date -Format "HH:mm:ss"
-$log = "$dt" + ".log"
+$log = "log\" + "$dt" + ".log"
 New-Item "cer" -ItemType Directory -Force > $null
 New-Item "inf" -ItemType Directory -Force > $null
 New-Item "csr" -ItemType Directory -Force > $null
 New-Item "pfx" -ItemType Directory -Force > $null
-Write-Host "Starting time is $startTime ..."
+New-Item "log" -ItemType Directory -Force > $null
+Write-Host "Start processing."
 function main {
   foreach ($user in $ul){
     $cn = $user.cn
     Write-Output "###### START [ $cn ]"
-    Write-Host "Processing $cn now $(Get-Date -Format "HH:mm:ss") ..."
+    Write-Host "$cn : $(Get-Date -Format "HH:mm:ss")"
     $email = $user.email
     $upn = $user.upn
     $un = $user.un1 + " " + $user.un2
@@ -53,3 +54,5 @@ Write-Output "Total Entries : $lines" >> $log
 Write-Output "Total Processing time :  $sec sec." >> $log
 Write-Output "Begining Time : $startTime" >> $log
 Write-Output "Finished Time : $endTime" >> $log
+Write-Host "Finished : $endTime"
+Write-Host "Total : $sec sec."

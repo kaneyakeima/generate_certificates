@@ -26,7 +26,7 @@ function main {
     Write-Output @"
 [NewRequest]
 FriendlyName = "$un"
-Subject = "CN=$cn"
+Subject = "CN=$cn,L=佐世保市,ST=ミシシッピ州,O=ミシスッピクロスカントリー株式会社,OU=未来創造課,DC=コンテナ,STREET=世紀末通り"
 Exportable = TRUE
 ExportableEncrypted = TRUE
 [RequestAttributes]

@@ -45,8 +45,8 @@ function main {
   }
 }
 $sec = (Measure-Command{ main >> $log}).TotalSeconds
-$endTime = Get-Date -Format "HH'mm'ss"
-Write-Output "###### Statistics
+$endTime = Get-Date -Format "HH:mm:ss"
+Write-Output "###### Statistics" >> $log
 Write-Output "Total Entries : $lines" >> $log
 Write-Output "Total Processing time :  $sec sec." >> $log
 Write-Output "Begining Time : $startTime" >> $log

@@ -9,12 +9,12 @@ $log = "$dt" + ".log"
 New-Item "cer" -ItemType Directory -Force > $null
 New-Item "inf" -ItemType Directory -Force > $null
 New-Item "csr" -ItemType Directory -Force > $null
-Write-Host "PROCESS START!"
+Write-Host "Starting time is $startTime ..."
 function main {
   foreach ($user in $ul){
     $cn = $user.cn
     Write-Output "###### START [ $cn ]"
-    Write-Host "Processing $cn now..."
+    Write-Host "Processing $cn now (Get-Date -Format "HH:mm:ss") ..."
     $email = $user.email
     $upn = $user.upn
     $infval = @"

@@ -18,12 +18,14 @@ function main {
     Write-Host "Processing $cn now $(Get-Date -Format "HH:mm:ss") ..."
     $email = $user.email
     $upn = $user.upn
+    $un = $user.un1 + " " + $user.un2
     $inf = $user.cn + ".inf"
     $csr = $user.cn + ".csr"
     $cer = $user.cn + ".cer"
     Write-Output "### INF-FILE"
     Write-Output @"
 [NewRequest]
+FriendlyName = "$un"
 Subject = "CN=$cn"
 Exportable = TRUE
 ExportableEncrypted = TRUE

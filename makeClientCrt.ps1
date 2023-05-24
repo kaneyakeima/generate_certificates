@@ -4,7 +4,7 @@ $ulfn = "[user list for input(csv)]"
 $lines = (Get-Content -Path "$ulfn").Length - 1
 $ul = Import-Csv -Path "$ulfn"
 $dt = Get-Date -Format "yyyyMMdd_HHmmss"
-$startTime = Get-Date -Format "HH'mm'ss"
+$startTime = Get-Date -Format "HH:mm:ss"
 $log = "$dt" + ".log"
 New-Item "cer" -ItemType Directory -Force > $null
 New-Item "inf" -ItemType Directory -Force > $null

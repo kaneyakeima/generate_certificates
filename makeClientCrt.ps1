@@ -14,7 +14,7 @@ function main {
   foreach ($user in $ul){
     $cn = $user.cn
     Write-Output "###### START [ $cn ]"
-    Write-Host "Processing $cn now (Get-Date -Format "HH:mm:ss") ..."
+    Write-Host "Processing $cn now $(Get-Date -Format "HH:mm:ss") ..."
     $email = $user.email
     $upn = $user.upn
     $infval = @"

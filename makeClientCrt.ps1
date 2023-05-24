@@ -2,19 +2,19 @@ $pw = "password"
 $ca = ".\ppp-HOGE-CA"
 $ulfn = "user-list.csv"
 $lines = (Get-Content -Path "$ulfn").Length - 1
-Write-Host "### Total entries in $ulfn : $lines"
 $ul = Import-Csv -Path "$ulfn"
 $dt = Get-Date -Format "yyyyMMdd_HHmmss"
 $startTime = Get-Date -Format "HH'mm'ss"
 $log = "$dt" + ".log"
-New-Item "cer" -ItemType Directory -Force
-New-Item "inf" -ItemType Directory -Force
-New-Item "csr" -ItemType Directory -Force
-Write-Output "###### SINGLE" >> $log
+New-Item "cer" -ItemType Directory -Force > $null
+New-Item "inf" -ItemType Directory -Force > $null
+New-Item "csr" -ItemType Directory -Force > $null
+Write-Host "PROCESS START!"
 function main {
   foreach ($user in $ul){
     $cn = $user.cn
-    Write-Output "###### START [ $cn ]  "
+    Write-Output "###### START [ $cn ]"
+    Write-Host "Processing $cn now..."
     $email = $user.email
     $upn = $user.upn
     $infval = @"

@@ -44,7 +44,7 @@ _continue_ = "UPN=$upn"
     Write-Output "### INSTALL"
     certreq -accept .\cer\$cn.cer
     Write-Output "### EXPORT"
-    certutil -f -exportpfx -p $pw My $cn ".\pfx\$cn.pfx" ExtendedProperties,ExportParameters
+    certutil -f -exportpfx -user -p $pw My $cn ".\pfx\$cn.pfx" ExtendedProperties,ExportParameters
   }
 }
 $sec = (Measure-Command{ main >> $log}).TotalSeconds

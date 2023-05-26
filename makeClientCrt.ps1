@@ -27,11 +27,11 @@ function main {
     Write-Output @"
 [NewRequest]
 FriendlyName = "$un"
-Subject = "CN=$cn,L=佐世保市,ST=ミシシッピ州,O=ミシスッピクロスカントリー株式会社,OU=未来創造課,DC=コンテナ,STREET=世紀末通り"
+Subject = "CN=$cn,L=[localityName],ST=[stateOrProvinceName],O=[organizationName],OU=[organizationalUnitName],DC=[domainComponent]"
 Exportable = TRUE
 ExportableEncrypted = TRUE
 [RequestAttributes]
-CertificateTemplate = WorkspaceONE
+CertificateTemplate = [ADCS-TemplateName]
 [Extensions]
 2.5.29.17 = "{text}"
 _continue_ = "email=$email&"
